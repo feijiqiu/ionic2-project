@@ -10,7 +10,7 @@
   <link rel="icon" type="image/x-icon" href="assets/icon/favicon.ico">
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#4e8ef7">
-  
+
   <!-- cordova.js required for cordova apps -->
   <script src="cordova.js"></script>
 
@@ -29,12 +29,14 @@
 <body>
 
   <!-- Ionic's root component and where the app will load -->
-  <ion-app></ion-app>
+  <ion-app class="ios"></ion-app>
 
   <!-- The polyfills js is generated during the build process -->
   <script src="build/polyfills.js"></script>
 
-  <!-- The bundle js is generated during the build process -->
+  <!-- The bundle js is generated during the build process
+  只需要将 www,中的 js,用 gzip 压缩，再改下 index.html 中的加载js ,服务器配成支持 gzip
+   -->
   <script src="build/main.js"></script>
 
 </body>
