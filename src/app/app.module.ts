@@ -1,11 +1,12 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { AboutPage } from '../pages/about/about';
-import { AboutChildPage } from '../pages/about-detail/movie-detail'
+import { AboutModule } from '../pages/about/about.module';
+import { TabModule } from '../pages/tabs/tabs.module';
+
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
-import { TabsPage } from '../pages/tabs/tabs';
+/*import { TabsPage } from '../pages/tabs/tabs';*/
 import { TestPage } from '../pages/test/test';
 //note 一个Module指的是使用@NgModule修饰的class。
 // @NgModule利用一个元数据对象来告诉Angular如何去编译和运行代码。
@@ -16,11 +17,8 @@ import { TestPage } from '../pages/test/test';
   //note declarations：模块内部  Components/Directives/Pipes的列表，声明一下这个模块内部成员
   declarations: [
     MyApp,
-    AboutPage,
-    AboutChildPage,   //note ---- child_1 添加一个新的子页面必须
     ContactPage,
     HomePage,
-    TabsPage,
     TestPage
   ],
   //note 导入其他module，其它module暴露的出的Components、Directives、Pipes等可以在本module的组件中被使用。
@@ -40,7 +38,9 @@ import { TestPage } from '../pages/test/test';
           tabsPlacement: 'top',
         }
       }*/
-    }, {})
+    }, {}),
+    TabModule,
+    AboutModule
   ],
   //note 通常是app启动的根组件，一般只有一个component。
   // bootstrap中的组件会自动被放入到entryComponents中。
@@ -51,11 +51,11 @@ import { TestPage } from '../pages/test/test';
   // 每个Angular2的应用都至少有一个模块即跟模块。
   entryComponents: [
     MyApp,
-    AboutPage,
-    AboutChildPage,//note ---- child_1 添加一个新的子页面必须
+    /*AboutPage,
+    AboutChildPage,//note ---- child_1 添加一个新的子页面必须*/
     ContactPage,
     HomePage,
-    TabsPage,
+    /*TabsPage,*/
     TestPage
   ],
   //note 指定应用程序的根级别需要使用的service。
