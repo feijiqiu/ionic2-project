@@ -4,6 +4,7 @@ import { MyApp } from '../../app/app.component';
 import { AboutChildPage } from '../about-detail/movie-detail'
 import { AboutPage } from './about'
 
+import { AboutData } from '../../providers/aboutData'
 //note 一个Module指的是使用@NgModule修饰的class。
 // @NgModule利用一个元数据对象来告诉Angular如何去编译和运行代码。
 // 一个模块内部可以包含组件、指令、管道，并且可以将它们的访问权限声明为公有，以使外部模块的组件可以访问和使用到它们。
@@ -35,7 +36,7 @@ import { AboutPage } from './about'
   ],
   //note 指定应用程序的根级别需要使用的service。
   // （Angular2中没有模块级别的service，所有在NgModule中声明的Provider都是注册在根级别的Dependency Injector中）
-  providers: [],
+  providers: [AboutData],
   //用来控制将哪些内部成员暴露给外部使用。
   //导入一个module并不意味着会自动导入这个module内部导入的module所暴露出的公共成员。
   //除非导入的这个module把它内部导入的module写到exports中。

@@ -17,19 +17,22 @@ import 'rxjs/add/operator/map';
   if generate class used DI
  */
 @Injectable()
-export class ServerData {
-
+export class AboutData {
+  isRefresh:String;
   data:any;
 
   constructor(public http:Http){
-
+    this.isRefresh = '初始化'
   }
 
-  getHomePicList(){
-    return new Promise((resolve,reject) =>{
-      //this.http.post()
-
-    })
+  getAboutList(_id){
+    console.log(_id);
+    return 'tiantian'
   }
-
+  changeIsRefresh(_d){
+    this.isRefresh = _d;
+  }
+  getIsRefresh(){
+    return  this.isRefresh;
+  }
 }
