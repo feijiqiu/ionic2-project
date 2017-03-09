@@ -8,7 +8,8 @@
 <ion-content >
     <h3>这个姿势111一个子页面</h3>
     <button ion-item (click)="goToBack()" >{{'返回上一页'}}</button>
-
+    <button ion-item (click)="testHttpGet()" >测试http-get请求</button>
+    <button ion-item (click)="testHttpPost()" >测试http-post请求</button>
   <ion-grid>
     <ion-scroll scrollX="true" >
       <ion-row>
@@ -64,4 +65,18 @@
     </ion-scroll>
   </ion-grid>
 
+  <div *ngIf="dataFinish">
+    <ion-slides
+      (ionSlideDidChange)="slideChanged()"
+      [pager] = true
+      [initialSlide] = 3
+      [autoplay]  = 1000
+      [loop] = true
+    >
+      <ion-slide *ngFor="let slideData of slideDataList">
+        <img [src]="slideData">
+      </ion-slide>
+
+    </ion-slides>
+  </div>
 </ion-content>

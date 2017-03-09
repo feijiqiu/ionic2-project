@@ -32,5 +32,15 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
+
+    ion-slides {
+      background-color: red;
+      ion-slide{
+        span{
+          background-color: #0c60ee;
+        }
+      }
+
+    }
   }
 }

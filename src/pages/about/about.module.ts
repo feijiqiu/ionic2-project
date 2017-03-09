@@ -23,8 +23,7 @@ import { AboutData } from '../../providers/aboutData'
     AboutChildPage,   //note ---- child_1 添加一个新的子页面必须
     AboutPage,
   ],
-  //note 通常是app启动的根组件，一般只有一个component。
-  // bootstrap中的组件会自动被放入到entryComponents中。
+
  /* bootstrap: [IonicApp],*/
   //note  不会再模板中被引用到的组件。
   // 这个属性一般情况下只有ng自己使用，一般是bootstrap组件或者路由组件，ng会自动把bootstrap、路由组件放入其中。
