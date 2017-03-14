@@ -4,10 +4,14 @@ import { MyApp } from './app.component';
 import { AboutModule } from '../pages/about/about.module';
 import { TabModule } from '../pages/tabs/tabs.module';
 
+import { TestModule } from '../pages/test/test.module';
+
+
+
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 /*import { TabsPage } from '../pages/tabs/tabs';*/
-import { TestPage } from '../pages/test/test';
+
 //note 一个Module指的是使用@NgModule修饰的class。
 // @NgModule利用一个元数据对象来告诉Angular如何去编译和运行代码。
 // 一个模块内部可以包含组件、指令、管道，并且可以将它们的访问权限声明为公有，以使外部模块的组件可以访问和使用到它们。
@@ -18,8 +22,7 @@ import { TestPage } from '../pages/test/test';
   declarations: [
     MyApp,
     ContactPage,
-    HomePage,
-    TestPage
+    HomePage
   ],
   //note 导入其他module，其它module暴露的出的Components、Directives、Pipes等可以在本module的组件中被使用。
   // 比如导入CommonModule后就可以使用NgIf、NgFor等指令。
@@ -40,7 +43,8 @@ import { TestPage } from '../pages/test/test';
       }*/
     }, {}),
     TabModule,
-    AboutModule
+    AboutModule,
+    TestModule
   ],
   //note 通常是app启动的根组件，一般只有一个component。
   // bootstrap中的组件会自动被放入到entryComponents中。
@@ -56,7 +60,6 @@ import { TestPage } from '../pages/test/test';
     ContactPage,
     HomePage,
     /*TabsPage,*/
-    TestPage
   ],
   //note 指定应用程序的根级别需要使用的service。
   // （Angular2中没有模块级别的service，所有在NgModule中声明的Provider都是注册在根级别的Dependency Injector中）

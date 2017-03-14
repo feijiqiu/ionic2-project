@@ -26,6 +26,7 @@ export class AboutChildPage {
   slideDataList:Array<any>;
   movieInfo: any;
   hasErr: any;
+
   req_data:any = Object;
   dataFinish:boolean;
   constructor(public navCtrl: NavController, public navParams: NavParams,
@@ -48,8 +49,30 @@ export class AboutChildPage {
       deptName: 'nameD0A5D138281EB35738DB0175EE0A4A76',
       location: 'llllllD0A5D138281EB35738DB0175EE0A4A76',
     };
+    this.isLoadMore = true;
+    this.items = [];
+    for (let i = 0; i < 30; i++) {
+      this.items.push(i);
+    }
+  }
+  // note  test load more --------------------
+  items:Array<any>;
+  isLoadMore:boolean;
+  doInfinite(infiniteScroll) {
+    setTimeout(() => {
+      console.log(this.items.length);
+      if(this.items.length>90){
+        this.isLoadMore = false;
+      }
+      for (let i = 0; i < 30; i++) {
+        this.items.push(i);
+      }
+      console.log('add list more');
+      infiniteScroll.complete();
+    }, 500);
   }
 
+  ///_-----------
   initPageData(){
     setTimeout(() => {
 

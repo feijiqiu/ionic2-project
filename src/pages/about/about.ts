@@ -1,5 +1,5 @@
 import { Component,ViewChild} from '@angular/core';
-import { Platform, ActionSheetController,NavController,Content} from 'ionic-angular';
+import { Platform, ActionSheetController,Slides, NavController,Content} from 'ionic-angular';
 import { AboutChildPage } from '../about-detail/movie-detail'
 import { AboutData } from '../../providers/aboutData'
 //每个组件都以@Component 装饰器 函数开始
@@ -10,7 +10,10 @@ import { AboutData } from '../../providers/aboutData'
 })
 export class AboutPage {
   @ViewChild(Content) content: Content;
+  @ViewChild(Slides) slides: Slides;
   componentName:String;
+  dataFinish:boolean;
+  slideDataList:Array<any>;
   //note 在构造函数参数中使用public是一种简写形式，它将自动创建具有该名称的属性
   constructor(
     public navCtrl: NavController,
@@ -18,15 +21,31 @@ export class AboutPage {
     public actionsheetCtrl: ActionSheetController,
     public aboutData: AboutData
   ) {
-    this.componentName = 'AboutPage --------- '
+    this.componentName = 'AboutPage --------- ';
+    this.dataFinish = false;
   }
   ionViewWillEnter(){
+    // note 与 ionViewWillLeave this.slides.stopAutoplay(); 配合 防止页面离开 slide 轮播失效问题
+    if(this.dataFinish){
+      this.slides.startAutoplay();// 只有当打开 [autoplay]  = 1000 且 手动this.slides.stopAutoplay();才有效
+    }
     console.log('isRefresh :: ====' + this.aboutData.getIsRefresh());
     console.log(this.componentName + 'Observable to be subscribed to when a component has fully become the active component.');
     console.log(this.componentName + 'ionViewWillEnter');
     console.log('isRefresh :: ====' + this.aboutData.getIsRefresh());
   }
   ionViewDidLoad() {
+    this.slideDataList = [
+      'http://img.pinhui001.com/group1/M00/00/10/CgEILliizZuAQnBLAALdVVU7DHU450.jpg',
+      'http://img.pinhui001.com/group1/M00/00/20/CgEILVizyASAAJAQAAEoFICcgys336.jpg',
+      'http://img.pinhui001.com/group1/M00/00/20/CgEILVizxuCASk8sAAQOB6y4-rk654.png',
+      'http://img.pinhui001.com/group1/M00/00/10/CgEILliizZuAQnBLAALdVVU7DHU450.jpg',
+      'http://img.pinhui001.com/group1/M00/00/10/CgEILliizZuAQnBLAALdVVU7DHU450.jpg',
+      'http://img.pinhui001.com/group1/M00/00/20/CgEILVizyASAAJAQAAEoFICcgys336.jpg',
+      'http://img.pinhui001.com/group1/M00/00/10/CgEILliizZuAQnBLAALdVVU7DHU450.jpg',
+      'http://img.pinhui001.com/group1/M00/00/10/CgEILliizZuAQnBLAALdVVU7DHU450.jpg'
+    ];
+    this.dataFinish =true;
     console.log(this.componentName + 'Observable to be subscribed to when a component is about to be loaded.');
     console.log(this.componentName + 'ionViewDidLoad');
   }
@@ -34,6 +53,8 @@ export class AboutPage {
     console.log(this.componentName +'Observable to be subscribed to when a component is about to be unloaded and destroyed.');
     console.log(this.componentName + 'ionViewWillLeave');
     console.log('isRefresh :: ====' + this.aboutData.getIsRefresh());
+    this.slides.stopAutoplay();// 只有当打开 [autoplay]  = 1000 起效
+
   }
   openMenu() {
     let actionSheet = this.actionsheetCtrl.create({
@@ -83,6 +104,9 @@ export class AboutPage {
   }
   goToChildPage(id){
     this.navCtrl.push(AboutChildPage, { id: id });
+  }
+  goToTestLoadMore(){
+    /*this.navCtrl.push(TestLoadMore);*/
   }
   goToBack(){
    console.log(111);

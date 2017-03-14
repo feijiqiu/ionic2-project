@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
+
+import { LoadMorePage } from './loadMore/loadMore'
+
 //每个组件都以@Component 装饰器 函数开始
 //Every component begins with an @Component decorator function that takes a metadata object
 @Component({
@@ -13,5 +16,7 @@ export class TestPage {
   constructor(public navCtrl: NavController) {
 
   }
-
+  goToTestLoadMore(){
+    this.navCtrl.push(LoadMorePage);
+  }
 }

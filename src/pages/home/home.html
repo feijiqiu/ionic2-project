@@ -4,14 +4,56 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content>
+  <div *ngIf="dataFinish">
+    <ion-slides
+      [pager] = true
+      [initialSlide] = 3
+      [autoplay]  = 1000
+      [loop] = true
+    >
+      <ion-slide *ngFor="let slideData of slideDataList">
+        <img [src]="slideData">
+      </ion-slide>
+
+    </ion-slides>
+  </div>
+
+  <div class="menu">
+    <ul>
+      <li>
+        <a (click)="goToChildPage(1)">
+          <ion-icon name="ios-clock">
+
+          </ion-icon>
+          <p class="text">sdkfjdskjf</p>
+        </a>
+      </li>
+      <li>
+        <a>
+          <ion-icon name="ios-clock">
+
+          </ion-icon>
+          <p class="text">sdkfjdskjf</p>
+        </a>
+      </li>
+      <li>
+        <a>
+          <ion-icon name="ios-clock">
+
+          </ion-icon>
+          <p class="text">sdkfjdskjf</p>
+        </a>
+      </li>
+      <li>
+        <a>
+          <ion-icon name="ios-clock">
+
+          </ion-icon>
+          <p class="text">sdkfjdskjf</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+
 </ion-content>

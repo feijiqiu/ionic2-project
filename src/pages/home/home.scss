@@ -1,3 +1,55 @@
 page-home {
+  li, ol, ul{
+    list-style: none;
+  }
+  ol, ul{
+    padding: 0;
+  }
+  a, a:hover{
+    text-decoration: none;
+    color: #444;
+  }
+  p{
+    word-wrap: break-word;
+  }
+
+  body, button, dd, dl, form, h1, h2, h3, h4, h5, h6, input, ol, p, select, ul{
+    margin: 0;
+  }
+
+  .menu{
+    margin-bottom: 10px;
+    border-bottom: 1px solid #dfdfdf;
+    padding: 12px 10px;
+    background: #fff;
+
+    ion-icon{
+      font-size: 4rem;
+    }
+    ul{
+      &:after{
+        display: table;
+        content: "";
+        clear: both;
+      }
+      li{
+        float: left;
+        width: 25%;
+        height: 73px;
+        text-align: center;
+
+        .text{
+          margin-top: 4px;
+          font-size: 14px;
+          color: #8f8f8f;
+        }
+
+        p {
+
+        }
+      }
+    }
+
+  }
 
 }
