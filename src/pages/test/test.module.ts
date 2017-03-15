@@ -3,6 +3,8 @@ import { IonicModule} from 'ionic-angular';
 import { MyApp } from '../../app/app.component';
 
 import { LoadMorePage } from './loadMore/loadMore'
+import { UseModalPage } from './useModal/useModal'
+import { MyModalModal } from './useModal/myModal/myModal'
 
 import { TestPage } from './test'
 
@@ -22,6 +24,8 @@ import { TestPage } from './test'
   //Components/Directives/Pipes的列表，声明一下这个模块内部成员
   declarations: [
     LoadMorePage,   //note ---- child_1 添加一个新的子页面必须
+    UseModalPage,
+    MyModalModal,
     TestPage
   ],
 
@@ -32,6 +36,8 @@ import { TestPage } from './test'
   // 每个Angular2的应用都至少有一个模块即跟模块。
   entryComponents: [
     LoadMorePage,//note ---- child_1 添加一个新的子页面必须
+    UseModalPage,
+    MyModalModal,
     TestPage
   ],
   //note 指定应用程序的根级别需要使用的service。

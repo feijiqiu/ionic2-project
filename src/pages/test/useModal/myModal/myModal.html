@@ -1,0 +1,18 @@
+<ion-header no-border>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Description
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="closeThis()">
+        <!--<span ion-text color="primary" showWhen="ios">Cancel</span>
+        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>-->
+        <ion-icon class="back-button-icon  back-button-icon-ios" name="ios-arrow-back" ></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content >
+    <h3 text-center (click)="closeThis()" >关闭modal</h3>
+    {{data.name}}
+</ion-content>

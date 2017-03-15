@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 import { LoadMorePage } from './loadMore/loadMore'
-
+import { UseModalPage } from './useModal/useModal'
 //每个组件都以@Component 装饰器 函数开始
 //Every component begins with an @Component decorator function that takes a metadata object
 @Component({
@@ -18,5 +18,9 @@ export class TestPage {
   }
   goToTestLoadMore(){
     this.navCtrl.push(LoadMorePage);
+  }
+
+  goToTestUseModal(){
+    this.navCtrl.push(UseModalPage);
   }
 }

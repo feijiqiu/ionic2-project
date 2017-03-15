@@ -35,8 +35,25 @@ export class LoadMorePage {
       infiniteScroll.complete();
     }, 500);
   }
-
   ///_-----------
+
+  doRefresh(refresher){
+    console.log('Begin async operation   init item', refresher);
+    setTimeout(() => {
+      setTimeout(()=>{
+        this.isLoadMore = true;
+      },500);
+      this.items = [];
+      this.isLoadMore = false;
+      for (let i = 0; i < 30; i++) {
+        this.items.push(i);
+      }
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
+  }
+
+
   initPageData(){
 
   }
